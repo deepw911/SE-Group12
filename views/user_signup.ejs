@@ -2,20 +2,23 @@
 <html>
     <head>
         <title>Collaborate: Sign Up</title>
+        <link rel="stylesheet" href="/css/signup.css">
     </head>
     <body>
-        <h2>Sign Up</h2>
-        <form action="/users/create-user" method="POST">
-            <label for="name" >Full Name:</label><br>
-            <input type="text" name="name" required><br>
-            <label for="email">Email:</label><br>
-            <input type="text" name="email" required><br>
-            <label for="password">Password:</label><br>
-            <input type="password" name="password" required><br>
-            <label for="confirmPassword">Confirm Password:</label><br>
-            <input type="password" name="confirmPassword" required><br>
-            <button type="submit">Sign Up!</button>  
-        </form>
+        <div id="main">
+            <h2>Sign Up</h2>
+            <form action="/users/create-user" method="POST">
+                <label for="name" >Full Name</label><br>
+                <input type="text" name="name" required><br>
+                <label for="email">Email</label><br>
+                <input type="text" name="email" required><br>
+                <label for="password">Password</label><br>
+                <input type="password" name="password" required><br>
+                <label for="confirmPassword">Confirm Password</label><br>
+                <input type="password" name="confirmPassword" required><br>
+                <button type="submit">Sign Up!</button>  
+            </form>
+        </div>
 
     </body>
 </html>
