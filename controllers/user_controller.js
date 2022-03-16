@@ -36,7 +36,7 @@ module.exports.createUser = (req, res)=>{
                     }, (err, newUser)=>{
 
                         if(err){console.log('error in creating user'); return;}
-                        
+
                         console.log('**', newUser);
                         return res.redirect('/users/signin');
 
@@ -50,4 +50,8 @@ module.exports.createUser = (req, res)=>{
         })
     }
 
+}
+
+module.exports.createSession = (req, res)=>{
+    return res.send('<h3>Logged In</h3>');
 }
