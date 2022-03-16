@@ -4,7 +4,7 @@ const db = require('./config/mongoose');
 //import router
 const routes = require('./routes/index');
 
-const session = require('express-session');
+const session = require('cookie-session');
 const passport = require('./config/passport-local-strategy');
 
 const expressLayouts= require('express-ejs-layouts');
