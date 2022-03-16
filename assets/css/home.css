@@ -1,0 +1,28 @@
+#main-heading{
+    padding-top: 90px;
+}
+
+#main-heading h1{
+    margin: 0px;
+    font-size: 5rem;
+    font-weight: 200;
+}
+
+#main-heading p{
+    font-size: 1.5rem;
+}
+
+.home-button{
+    padding: 7px 20px;
+    border-radius: 4px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    font-size: 1.2rem;
+    margin: 10px 10px;
+}
+
+.home-button:hover{
+    box-shadow: 0px 0px 5px 0.7px white;
+    cursor: pointer;
+}

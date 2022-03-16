@@ -1,0 +1,14 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: sans-serif;
+  background: linear-gradient(135deg,#0079bf,#5067c5);
+}
+
+body main {
+  height: 100%;
+  min-height: 85vh;
+  color: #fff;
+  text-align: center;
+  
+}

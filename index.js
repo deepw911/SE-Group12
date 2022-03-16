@@ -7,6 +7,8 @@ const routes = require('./routes/index');
 const session = require('express-session');
 const passport = require('./config/passport-local-strategy');
 
+const expressLayouts= require('express-ejs-layouts');
+
 const PORT = 80;
 
 //view engine
@@ -19,6 +21,11 @@ app.use(express.static('./assets'));
 //middleware to parse form data
 app.use(express.urlencoded({extended: true}));
 
+//express layouts
+app.use(expressLayouts);
+app.set('layout extractStyles', true);
+app.set('layout extractScripts', true);
+
 //authentication
 app.use(session({
     name: 'user_id',
@@ -29,7 +36,6 @@ app.use(session({
         maxAge: (1000*60*100) //in milli seconds
     }
 }));
-
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setUser);
