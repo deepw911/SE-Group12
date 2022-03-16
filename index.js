@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const db = require('./config/mongoose');
 //import router
 const routes = require('./routes/index');
 
