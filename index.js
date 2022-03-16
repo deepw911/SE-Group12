@@ -13,6 +13,8 @@ app.set('views', './views');
 //static folder
 app.use(express.static('./assets'));
 
+//middleware to parse form data
+app.use(express.urlencoded({extended: true}));
 
 //route
 app.use('/', routes);
