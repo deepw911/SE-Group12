@@ -11,6 +11,10 @@ module.exports.signup = (req, res)=>{
     })
 }
 
+module.exports.profile = (req, res)=>{
+    res.render('user_profile.ejs');
+}
+
 module.exports.createUser = (req, res)=>{
     //if password doesn't match with confirm password 
     if(req.body.password!=req.body.confirmPassword)
@@ -53,5 +57,5 @@ module.exports.createUser = (req, res)=>{
 }
 
 module.exports.createSession = (req, res)=>{
-    return res.send('<h3>Logged In</h3>');
+    return res.redirect('/users/profile');
 }
