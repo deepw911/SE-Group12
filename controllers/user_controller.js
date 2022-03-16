@@ -11,6 +11,11 @@ module.exports.signup = (req, res)=>{
     })
 }
 
+module.exports.signout = (req, res)=>{
+    req.logout();
+    return res.redirect('/');
+}
+
 module.exports.profile = (req, res)=>{
     res.render('user_profile.ejs');
 }

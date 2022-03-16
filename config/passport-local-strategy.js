@@ -52,5 +52,26 @@ passport.setUser = (req, res, next)=>{
   next();
 }
 
+passport.checkAuthentication = (req, res, next)=>{
+    if(req.isAuthenticated())
+    {
+      next();
+    }
+    else{
+      return res.redirect('/users/signin');
+    }
+  };
+  
+  //sign in middleware
+  passport.isSigned = (req, res, next)=>{
+    if(req.isAuthenticated())
+    {
+      return res.redirect('/');
+    }
+    else{
+      next();
+    }
+  };
+
 
 module.exports = passport;
