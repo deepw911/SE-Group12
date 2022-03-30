@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const MongoUrl = 'mongodb://localhost/collaborate_db';
 const atlasUrl = 'mongodb+srv://collaborate_se:collaborate1234@cluster0.vtouc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-mongoose.connect(atlasUrl);
+mongoose.connect(MongoUrl);
 
 const db = mongoose.connection;
 
