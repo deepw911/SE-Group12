@@ -15,7 +15,13 @@ var userSchema = new Schema({
     name: {
         type: String,
         required: true
-    }
+    },
+    ownedBoards: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'board'
+        }
+    ]
 }, {
     timestamps: true
 });
