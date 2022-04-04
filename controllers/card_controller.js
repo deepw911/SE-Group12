@@ -56,8 +56,10 @@ module.exports.moveCard = async (req, res) => {
       from.cards.splice(from.cards.indexOf(cardId), 1);
       await from.save();
   
-      to.cards.unshift(cardId);
-      await to.save();
+      if (!to.cards.includes(cardId)) {
+        to.cards.push(cardId);
+        await to.save();
+      }
   
       res.send({ from, to });
     } catch (err) {
