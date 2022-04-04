@@ -7,7 +7,7 @@ router.post('/',passport.checkAuthentication, cardController.createCard );
 
 router.patch('/:id', passport.checkAuthentication, cardController.editCard);
 
-router.patch('/moveCard/:cardId/:from/:to', passport.checkAuthentication, cardController.moveCard);
+router.patch('/moveCard/:cardId', passport.checkAuthentication, cardController.moveCard);
 
 router.delete('/:id', passport.checkAuthentication, cardController.deleteCard);
 

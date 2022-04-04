@@ -46,9 +46,9 @@ module.exports.createCard = async (req, res) => {
 
 module.exports.moveCard = async (req, res) => {
     try {
-      const cardId = req.params.cardId;
-      const from = await List.findById(req.params.from);
-      const to = await List.findById(req.params.to);
+      const cardId = req.body.cardId;
+      const from = await List.findById(req.body.from);
+      const to = await List.findById(req.body.to);
       if (!cardId || !from || !to) {
         return res.status(404).json({ msg: 'List/card not found' });
       }
