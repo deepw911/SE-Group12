@@ -43,3 +43,25 @@ module.exports.createCard = async (req, res) => {
       res.status(500).send('Server Error');
     }
 }
+
+module.exports.moveCard = async (req, res) => {
+    try {
+      const cardId = req.params.cardId;
+      const from = await List.findById(req.params.from);
+      const to = await List.findById(req.params.to);
+      if (!cardId || !from || !to) {
+        return res.status(404).json({ msg: 'List/card not found' });
+      }
+  
+      from.cards.splice(from.cards.indexOf(cardId), 1);
+      await from.save();
+  
+      to.cards.unshift(cardId);
+      await to.save();
+  
+      res.send({ from, to });
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+}

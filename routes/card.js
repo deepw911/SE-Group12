@@ -7,4 +7,6 @@ router.post('/',passport.checkAuthentication, cardController.createCard );
 
 router.patch('/:id', passport.checkAuthentication, cardController.editCard);
 
+router.patch('/moveCard/:cardId/:from/:to', passport.checkAuthentication, cardController.moveCard);
+
 module.exports = router;
