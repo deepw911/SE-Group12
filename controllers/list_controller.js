@@ -50,3 +50,17 @@ module.exports.getBoardLists = async (req, res) => {
       res.status(500).send('Server Error');
     }
 }
+
+module.exports.getById = async (req, res) => {
+  try {
+    const list = await List.findById(req.params.id);
+    if (!list) {
+      return res.status(404).json({ msg: 'List not found' });
+    }
+
+    res.json(list);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+}

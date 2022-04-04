@@ -10,4 +10,6 @@ router.patch('/rename/:id', passport.checkAuthentication, listController.renameL
 
 router.get('/:boardId', passport.checkAuthentication, listController.getBoardLists);
 
+router.get('/:id', passport.checkAuthentication, listController.getById);
+
 module.exports = router;
