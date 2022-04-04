@@ -10,7 +10,7 @@ const boardSchema = new Schema({
     lists: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'list'
+            ref: 'List'
         }
     ],
     backgroundURL: {
@@ -19,5 +19,5 @@ const boardSchema = new Schema({
 }, {
     timestamps: true
 });
-const board = mongoose.model('board', boardSchema);
+const board = mongoose.model('Board', boardSchema);
 module.exports = board;

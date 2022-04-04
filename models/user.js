@@ -19,7 +19,7 @@ var userSchema = new Schema({
     boards: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'board'
+            ref: 'Board'
         }
     ]
 }, {
