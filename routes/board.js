@@ -7,5 +7,5 @@ router.post('/', passport.checkAuthentication, boardController.createBoard);
 router.get('/', passport.checkAuthentication, boardController.getBoards);
 router.get('/:id', passport.checkAuthentication, boardController.getById);
 // Change a board's title
-router.put('/:id',passport.checkAuthentication, boardController.editTitle);
+router.patch('/:id',passport.checkAuthentication, boardController.editTitle);
 module.exports = router;

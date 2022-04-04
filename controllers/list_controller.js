@@ -19,3 +19,20 @@ module.exports.createList = async (req, res) => {
       res.status(500).send('Server Error');
     }
   }
+
+  module.exports.renameList = async (req, res) => {
+    try {
+      const list = await List.findById(req.params.id);
+      if (!list) {
+        return res.status(404).json({ msg: 'List not found' });
+      }
+
+      list.name = req.body.name;
+      list.save();
+
+      res.json({ msg: 'List name changed' });
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  }
