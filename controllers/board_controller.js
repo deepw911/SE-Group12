@@ -1,5 +1,6 @@
 const Board = require('../models/board');
 const User = require('../models/user');
+const router = require('../routes');
 
 module.exports.createBoard = async (req, res) => {
 
@@ -12,7 +13,7 @@ module.exports.createBoard = async (req, res) => {
 
       // Assign the board to the user
       const user = await User.findById(req.user.id).select('-password');
-      user.ownedBoards.push(board.id);
+      user.boards.push({id: board.id, title: board.title});
       await user.save();
 
       res.json(board);
@@ -21,3 +22,14 @@ module.exports.createBoard = async (req, res) => {
       res.status(500).send('Server Error');
     }
   }
+
+module.exports.getBoards = async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id).select('-password');
+
+        res.json(user.ownedBoards);
+    } catch (error) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+}
