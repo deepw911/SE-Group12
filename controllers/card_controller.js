@@ -20,3 +20,26 @@ module.exports.createCard = async (req, res) => {
       res.status(500).send('Server Error');
     }
   }
+
+  module.exports.editCard = async (req, res) => {
+    try {
+      const { title, description } = req.body;
+      if (title === '') {
+        return res.status(400).json({ msg: 'Title is required' });
+      }
+  
+      const card = await Card.findById(req.params.id);
+      if (!card) {
+        return res.status(404).json({ msg: 'Card not found' });
+      }
+  
+      card.title = title ? title : card.title;
+      card.description = description ? description : card.description;
+      card.save();
+  
+      res.json(card);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+}

@@ -5,4 +5,6 @@ const passport = require('../config/passport-local-strategy');
 
 router.post('/',passport.checkAuthentication, cardController.createCard );
 
+router.patch('/:id', passport.checkAuthentication, cardController.editCard);
+
 module.exports = router;
