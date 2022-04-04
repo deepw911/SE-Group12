@@ -86,3 +86,31 @@ module.exports.deleteCard = async (req, res) => {
       res.status(500).send('Server Error');
     }
 }
+
+module.exports.getCardsOfList = async (req, res) => {
+    try {
+      const list = await List.findById(req.params.listId);
+      if (!list) {
+        return res.status(404).json({ msg: 'List not found' });
+      }
+  
+      res.json(list.cards);
+    } catch (error) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+}
+
+module.exports.getById = async (req, res) => {
+    try {
+      const card = await Card.findById(req.params.id);
+      if (!card) {
+        return res.status(404).json({ msg: 'Card not found' });
+      }
+  
+      res.json(card);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+}

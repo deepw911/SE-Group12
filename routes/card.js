@@ -9,8 +9,12 @@ router.patch('/:id', passport.checkAuthentication, cardController.editCard);
 
 router.patch('/moveCard/:cardId/:from/:to', passport.checkAuthentication, cardController.moveCard);
 
-// Delete a card
 router.delete('/:id', passport.checkAuthentication, cardController.deleteCard);
+
+router.get('/listCards/:listId', passport.checkAuthentication, cardController.getCardsOfList);
+
+router.get('/:id', passport.checkAuthentication, cardController.getById);
+  
   
 
 module.exports = router;
