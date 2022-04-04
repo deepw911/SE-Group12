@@ -14,7 +14,7 @@ module.exports.createBoard = async (req, res) => {
 
       // Assign the board to the user
       const user = await User.findById(req.user.id).select('-password');
-      user.boards.push({id: board.id, title: board.title});
+      user.boards.push(board.id);
       await user.save();
 
       res.json(board);
@@ -51,3 +51,24 @@ module.exports.getById = async (req, res) => {
       res.status(500).send('Server Error');
     }
 }
+
+//edit board title
+module.exports.editTitle = async (req, res) => {
+
+  try {
+    const board = await Board.findById(req.params.id);
+
+    if (!board) {
+      return res.status(404).json({ msg: 'Board not found' });
+    }
+
+    board.title = req.body.title;
+    board.save();
+
+    res.json(board);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+}
+

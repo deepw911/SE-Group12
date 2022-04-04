@@ -16,6 +16,8 @@ const boardSchema = new Schema({
     backgroundURL: {
         type: String,
     }
+}, {
+    timestamps: true
 });
 const board = mongoose.model('board', boardSchema);
 module.exports = board;

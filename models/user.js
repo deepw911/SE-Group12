@@ -18,15 +18,8 @@ var userSchema = new Schema({
     },
     boards: [
         {
-            _id: false,
-            id: {
-              type: mongoose.Schema.Types.ObjectId,
-              ref: 'boards',
-            },
-            title: {
-              type: String,
-              required: true,
-            }
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'board'
         }
     ]
 }, {
