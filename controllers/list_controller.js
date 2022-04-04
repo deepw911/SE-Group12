@@ -18,9 +18,9 @@ module.exports.createList = async (req, res) => {
       console.error(err.message);
       res.status(500).send('Server Error');
     }
-  }
+}
 
-  module.exports.renameList = async (req, res) => {
+module.exports.renameList = async (req, res) => {
     try {
       const list = await List.findById(req.params.id);
       if (!list) {
@@ -30,9 +30,20 @@ module.exports.createList = async (req, res) => {
       list.name = req.body.name;
       list.save();
 
-      res.json({ msg: 'List name changed' });
+      res.json(list);
     } catch (err) {
       console.error(err.message);
       res.status(500).send('Server Error');
     }
-  }
+}
+
+module.exports.getBoardLists = async (req, res) => {
+    try {
+      const board = await Board.findById(req.params.boardId);
+  
+      res.json(board.lists);
+    } catch (error) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+}
