@@ -5,4 +5,5 @@ const passport = require('../config/passport-local-strategy');
 
 router.post('/', passport.checkAuthentication, boardController.createBoard);
 router.get('/', passport.checkAuthentication, boardController.getBoards);
+router.get('/:id', passport.checkAuthentication, boardController.getById);
 module.exports = router;
