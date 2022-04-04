@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const listSchema = new Schema({
-  name: {
+  title: {
     type: String,
     required: true,
   },
