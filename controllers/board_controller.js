@@ -7,7 +7,8 @@ module.exports.createBoard = async (req, res) => {
       const { title, backgroundURL } = req.body;
 
       // Create and save the board
-      const board = await new Board({ title, backgroundURL }).save();
+      const newBoard = new Board({ title, backgroundURL });
+      const board = await newBoard.save();
 
       // Assign the board to the user
       const user = await User.findById(req.user.id).select('-password');

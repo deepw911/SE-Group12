@@ -16,7 +16,7 @@ var userSchema = new Schema({
         type: String,
         required: true
     },
-    ownedBoards: [
+    boards: [
         {
           type: mongoose.Schema.Types.ObjectId,
           ref: 'board'
