@@ -67,3 +67,22 @@ module.exports.moveCard = async (req, res) => {
       res.status(500).send('Server Error');
     }
 }
+
+module.exports.deleteCard = async (req, res) => {
+    try {
+      const card = await Card.findById(req.params.id);
+      const list = await List.findById(req.body.listId);
+      if (!card || !list) {
+        return res.status(404).json({ msg: 'List/card not found' });
+      }
+  
+      list.cards.splice(list.cards.indexOf(req.params.id), 1);
+      await list.save();
+      await card.remove();
+  
+      res.json({ msg: 'Card removed' });
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+}
